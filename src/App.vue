@@ -1,32 +1,58 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div class='main-frame'>
+    <div class='main-left'>
+      <ul>
+        <li><router-link to="/">Dashboard</router-link></li>
+      </ul>
+      <ul>
+        <li><router-link to="/entity">Entities (00)</router-link></li>
+        <li>Attributes (00)</li>
+        <li>Domains (00)</li>
+      </ul>
+      <ul>
+        <li>Words (00)</li>
+        <li>Terms (00)</li>
+        <li>Codes (00)</li>
+      </ul>
     </div>
-    <router-view/>
+    <div class='main-right'>
+      <router-view/>
+    </div>
   </div>
 </template>
 
+<script>
+export default {
+  data: function () {
+    return {
+      fileData: ''
+    }
+  },
+
+  methods: {
+    getFileContents: function () {
+    }
+  },
+}
+</script>
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.main-frame{
+  display: flex;
 }
 
-#nav {
-  padding: 30px;
+.main-left{
+  width: 200px;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: antiquewhite;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.main-right{
+  width: 100%;
+  padding-left: 10px;
+  /* border-style: solid;
+  border-width: 1px;
+  border-color: aqua; */
 }
 </style>
