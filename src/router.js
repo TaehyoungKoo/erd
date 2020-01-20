@@ -4,6 +4,8 @@ import VueRouter from 'vue-router'
 import Dashboard from '@/components/Dashboard.vue'
 import Entity from '@/components/Entity.vue'
 
+import SinglePageSample from '@/components/SinglePageSample.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -16,6 +18,11 @@ const routes = [
     path: '/entity',
     name: 'entity',
     component: Entity
+  },
+  {
+    path: '/singlePageSample',
+    name: 'singlePageSample',
+    component: SinglePageSample
   },
 ]
 
