@@ -6,7 +6,7 @@
       </ul>
       <ul>
         <li><router-link to="/entity">Entities({{this.$store.state.entity.length}})</router-link></li>
-        <li>Attributes (00)</li>
+        <li><router-link to="/attribute">Attribute</router-link></li>
         <li>Domains (00)</li>
       </ul>
       <ul>
@@ -95,7 +95,7 @@ body{
   width: 100%;
 }
 .field-controls label{
-  color: gray;
+  /* color: black; */
 }
 .button-group{
   width: 100%;
@@ -109,6 +109,30 @@ input{
   width: 200px;
   font-family: Verdana, sans-serif;
   font-size: 14px;
+}
+.checkbox-containter {
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  /*
+  border-style: solid;
+  border-width: 1px;
+  border-color: lightgrey;
+  */
+}
+.checkbox-containter input{
+  width: 20px;
+
+  -ms-transform: scale(1.4); /* IE */
+  -moz-transform: scale(1.4); /* FF */
+  -webkit-transform: scale(1.4); /* Safari and Chrome */
+  -o-transform: scale(1.4); /* Opera */
+  transform: scale(1.4);
+}
+.checkbox-containter label{
+  margin-left: 0px;
 }
 textarea{
   width: 100%;
