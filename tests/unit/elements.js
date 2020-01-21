@@ -4,13 +4,17 @@ function findLabel(wrapper, text) {
   const labelList = wrapper.findAll('label')
 
   for (var i = 0; i < labelList.length; i++) {
+    
+    //console.log(labelList.at(i).text())
+    //console.log(text)
+
     if (labelList.at(i).text() === text){
       return labelList.at(i)
     }
   }
 
-  if (selectedLabel === undefined)
-    console.log(`There is no [${text}] label`)
+  //if (selectedLabel === undefined)
+    //console.log(`There is no [${text}] label`)
 }
 
 //------------------------------------------------------------------
@@ -119,6 +123,15 @@ function findInputById(wrapper, id) {
   }
 }
 
+function enterInput(wrapper, id, value) {
+  const input = findInputById(wrapper, id)
+
+  //console.log(input.element.value)
+  input.element.value = value
+  input.trigger('change')
+  //console.log(input.element.value)
+}
+
 //------------------------------------------------------------------
 function findTextareaById(wrapper, id) {
   const textareaList = wrapper.findAll('textarea')
@@ -130,7 +143,16 @@ function findTextareaById(wrapper, id) {
   }
 }
 
+//------------------------------------------------------------------
+function findButton(wrapper, text) {
+  const buttonList = wrapper.findAll('button')
 
+  for (var i = 0; i < buttonList.length; i++) {
+    if (buttonList.at(i).text() === text) {
+      return buttonList.at(i)
+    }
+  }
+}
 
 export {
   findLabel, 
@@ -146,6 +168,9 @@ export {
   unCheckCheckbox,
 
   findInputById,
+  enterInput,
 
   findTextareaById,
+
+  findButton,
 }

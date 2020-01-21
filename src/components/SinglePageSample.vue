@@ -10,7 +10,7 @@
           <label>Name</label>
         </div>
         <div class='field-controls'>
-          <input v-model='name' type='input'>
+          <input type='input'>
         </div>
       </div>
 
@@ -19,7 +19,7 @@
           <label>Description</label>
         </div>
         <div class='field-controls'>
-          <textarea v-model='description'></textarea>
+          <textarea></textarea>
         </div>
       </div>
       
@@ -43,6 +43,18 @@
         </div>
       </div>
 
+      <div class='field-group'>
+        <div class='field-label'>
+          <label>곱하기</label>
+        </div>
+        <div class='field-controls'>
+          <input v-model='valueA' type='input' id='inputA'>
+          <button @click='multiply'>곱하기</button>
+          <input v-model='valueB' type='input' id='inputB'>
+          <label>{{resultMultiply}}</label>
+        </div>
+      </div>
+
       <div class='button-group'>
         <button @click='saveEntity'>Save</button>
       </div>
@@ -55,20 +67,24 @@
 export default {
   data: function () {
     return {
-      name: '',
-      description: '',
+      valueA: 0,
+      valueB: 0,
+      resultMultiply: 0,
     }
   },
 
   methods: {
+    
     saveEntity: function () {
-      const entity = {
-        name: this.name,
-        description: this.description,
-      }
-
-      this.$store.state.entity.push(entity)
     },
+
+    multiply: function () {
+      this.resultMultiply = this.valueA * this.valueB
+      console.log('mutiply called [' + this.valueA + ']')
+      console.log('mutiply called [' + this.valueB + ']')
+      console.log('mutiply called [' + this.resultMultiply + ']')
+    },
+
   },
 }
 </script>
