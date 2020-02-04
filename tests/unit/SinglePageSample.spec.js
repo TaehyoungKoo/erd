@@ -18,19 +18,17 @@ describe('샘플화면', () => {
     page = shallowMount(SinglePageSample)
   });
 
-  describe.skip('곱하기', () => {
+  describe('곱하기', () => {
     it('두 수(10 X 10)의 곱셈결과(100)가 표시된다', () => {
-      enterInput(page, 'inputA', 2)//GIVEN
-      enterInput(page, 'inputB', 3)
-      const inputA = findInputById(page, 'inputA')//GIVEN
+      enterInput(page, 'inputA', 10)//GIVEN
+      enterInput(page, 'inputB', 10)
+      const inputA = findInputById(page, 'inputA')
       const inputB = findInputById(page, 'inputB')
-      console.log(inputA.element.value)
-      console.log(inputB.element.value)
 
       const button = findButton(page, '곱하기')//WHEN
       button.trigger('click')
 
-      const resultLabel = findLabel(page, 6)//THEN
+      const resultLabel = findLabel(page, '100')//THEN
       expect(resultLabel).to.be.ok
     })
   })

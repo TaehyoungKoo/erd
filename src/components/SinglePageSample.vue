@@ -43,21 +43,14 @@
         </div>
       </div>
 
-      <div class='field-group'>
-        <div class='field-label'>
-          <label>곱하기</label>
-        </div>
-        <div class='field-controls'>
-          <input v-model='valueA' type='input' id='inputA'>
-          <button @click='multiply'>곱하기</button>
-          <input v-model='valueB' type='input' id='inputB'>
-          <label>{{resultMultiply}}</label>
-        </div>
-      </div>
-
       <div class='button-group'>
         <button @click='saveEntity'>Save</button>
       </div>
+
+      <input v-model='valueA' type='input' id='inputA'><br>
+      <input v-model='valueB' type='input' id='inputB'><br>
+      <button @click='multiply'>곱하기</button><br>
+      <label>{{resultMultiply}}</label>
       
     </div>
   </div>
@@ -80,9 +73,6 @@ export default {
 
     multiply: function () {
       this.resultMultiply = this.valueA * this.valueB
-      console.log('mutiply called [' + this.valueA + ']')
-      console.log('mutiply called [' + this.valueB + ']')
-      console.log('mutiply called [' + this.resultMultiply + ']')
     },
 
   },

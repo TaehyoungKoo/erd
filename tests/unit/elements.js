@@ -1,20 +1,13 @@
 function findLabel(wrapper, text) {
   let selectedLabel
-  
+
   const labelList = wrapper.findAll('label')
 
   for (var i = 0; i < labelList.length; i++) {
-    
-    //console.log(labelList.at(i).text())
-    //console.log(text)
-
-    if (labelList.at(i).text() === text){
+    if (labelList.at(i).text() === text) {
       return labelList.at(i)
     }
   }
-
-  //if (selectedLabel === undefined)
-    //console.log(`There is no [${text}] label`)
 }
 
 //------------------------------------------------------------------
@@ -50,11 +43,11 @@ function findRadioButton(wrapper, text) {
   for (var i = 0; i < radioGroupList.length; i++) {
     const radio = radioGroupList.at(i).find('input[type="radio"]')
     const label = radioGroupList.at(i).find('label')
-    
+
     if (label.text() === text) {
       return radio
     }
-  }  
+  }
 }
 
 //------------------------------------------------------------------
@@ -84,16 +77,16 @@ function findCheckbox(wrapper, text) {
   return {
     object: selectedCheckbox,
     exist: (selectedCheckbox === undefined ? false : true),
-    
+
     checked: (
-      selectedCheckbox !== undefined && 
+      selectedCheckbox !== undefined &&
         selectedCheckbox.element.checked ? true : false
-        //or selectedCheckbox.attributes().checked === 'checked' ? true : false
+      //or selectedCheckbox.attributes().checked === 'checked' ? true : false
     ),
 
     disabled: (
       selectedCheckbox !== undefined &&
-      selectedCheckbox.element.disabled ? true : false
+        selectedCheckbox.element.disabled ? true : false
     ),
   }
 }
@@ -126,10 +119,12 @@ function findInputById(wrapper, id) {
 function enterInput(wrapper, id, value) {
   const input = findInputById(wrapper, id)
 
-  //console.log(input.element.value)
-  input.element.value = value
+  //https://vue-test-utils.vuejs.org/api/wrapper/#setvalue
+  //input.element.value = value
+  //textInput.trigger('input')
+
+  input.setValue(value)
   input.trigger('change')
-  //console.log(input.element.value)
 }
 
 //------------------------------------------------------------------
@@ -155,13 +150,13 @@ function findButton(wrapper, text) {
 }
 
 export {
-  findLabel, 
-  
-  findRadioButton, 
+  findLabel,
+
+  findRadioButton,
   findRadioButtonByValue,
   selectRadioButton,
   unSelectRadioButton,
-  
+
   findCheckbox,
   findCheckboxByValue,
   checkCheckbox,

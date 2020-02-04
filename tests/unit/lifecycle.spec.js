@@ -1,4 +1,4 @@
-describe('Mocha Test Framework Lifecycle', () => {
+describe.skip('Mocha Test Framework Lifecycle', () => {
   
   before(function () {
     console.log('  >  before')
