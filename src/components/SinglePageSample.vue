@@ -51,23 +51,35 @@
       <input v-model='valueB' type='input' id='inputB'><br>
       <button @click='multiply'>곱하기</button><br>
       <label>{{resultMultiply}}</label>
-      
+
+      <button @click="showModal">showModal</button>
+      <!-- 
+      static
+      <Dialog message='t2st'/> 
+      -->
+      <Dialog :message='message'/>
     </div>
   </div>
 </template>
 
 <script>
+import Dialog from '@/components/popup/Dialog'
+
 export default {
+  components: {
+    Dialog
+  },
+
   data: function () {
     return {
       valueA: 0,
       valueB: 0,
       resultMultiply: 0,
+      message: 'test message'
     }
   },
 
   methods: {
-    
     saveEntity: function () {
     },
 
@@ -75,6 +87,14 @@ export default {
       this.resultMultiply = this.valueA * this.valueB
     },
 
+    showModal: function() {
+      const modal = document.querySelector('dialog')
+      modal.showModal()
+    },
   },
 }
 </script>
+
+<style scoped>
+
+</style>
