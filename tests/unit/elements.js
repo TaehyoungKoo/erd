@@ -1,3 +1,17 @@
+//------------------------------------------------------------------
+function hasPageTitle(wrapper, title) {
+  let hasPageTitle = false
+  const pageTitle = wrapper.find('div[class="page-title"]')
+
+  if(pageTitle !== undefined){
+    if(pageTitle.text() === title)
+      hasPageTitle = true
+  }
+
+  return hasPageTitle
+}
+
+//------------------------------------------------------------------
 function findLabel(wrapper, text) {
   let selectedLabel
 
@@ -106,6 +120,26 @@ function unCheckCheckbox(wrapper, text) {
 }
 
 //------------------------------------------------------------------
+function findDropdownlist(wrapper, name) {
+  const selectList = wrapper.findAll('select')
+
+  for (var i = 0; i < selectList.length; i++) {
+    if (selectList.at(i).attributes().name === name) {
+      return selectList.at(i)
+    }
+  }
+}
+
+function getOptionList(wrapper, selectName){
+  const select = findDropdownlist(wrapper, selectName)
+
+  const optionList = select.findAll('option')
+  //optionList.at(1).setSelected()
+
+  return optionList.length
+}
+
+//------------------------------------------------------------------
 function findInputById(wrapper, id) {
   const inputList = wrapper.findAll('input[type = "input"]')
 
@@ -150,6 +184,8 @@ function findButton(wrapper, text) {
 }
 
 export {
+  hasPageTitle, 
+
   findLabel,
 
   findRadioButton,
@@ -161,6 +197,9 @@ export {
   findCheckboxByValue,
   checkCheckbox,
   unCheckCheckbox,
+
+  findDropdownlist,
+  getOptionList,
 
   findInputById,
   enterInput,
