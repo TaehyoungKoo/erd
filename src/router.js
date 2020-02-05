@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Dashboard from '@/components/Dashboard.vue'
 import Entity from '@/components/Entity.vue'
 import Attribute from '@/components/Attribute.vue'
+import Domain from '@/components/Domain.vue'
 
 import SinglePageSample from '@/components/SinglePageSample.vue'
 
@@ -19,6 +20,11 @@ const routes = [
     path: '/entity',
     name: 'entity',
     component: Entity
+  },
+  {
+    path: '/domain',
+    name: 'domain',
+    component: Domain
   },
   {
     path: '/attribute',

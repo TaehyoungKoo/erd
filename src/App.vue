@@ -7,7 +7,7 @@
       <ul>
         <li><router-link to="/entity">Entities({{this.$store.state.entity.length}})</router-link></li>
         <li><router-link to="/attribute">Attribute</router-link></li>
-        <li>Domains (00)</li>
+        <li><router-link to="/domain">Domain</router-link></li>
       </ul>
       <ul>
         <li>Words (00)</li>
