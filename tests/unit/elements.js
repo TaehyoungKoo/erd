@@ -183,6 +183,11 @@ function findButton(wrapper, text) {
   }
 }
 
+function clickButton(wrapper, text) {
+  const button = findButton(wrapper, text)
+  button.trigger('click')
+}
+
 export {
   hasPageTitle, 
 
@@ -207,4 +212,5 @@ export {
   findTextareaById,
 
   findButton,
+  clickButton,
 }
