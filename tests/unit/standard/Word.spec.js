@@ -4,7 +4,7 @@ import { shallowMount, createLocalVue } from '@vue/test-utils'
 import Vuex from 'vuex'
 
 import Word from '@/components/standard/Word.vue'
-import { hasPageTitle, hasGridHeader, hasGridRow } from '../elements'
+import { hasPageTitle, findLabel, hasGridHeader, hasGridRow, findInputById, findRadioButton, findTextareaById } from '../elements'
 
 describe.only('Domain', () => {
   let page
@@ -16,8 +16,8 @@ describe.only('Domain', () => {
     const testStore = new Vuex.Store({
       state: {
         word: [
-          {name: 'word test 1'},
-          {name: 'word test 2'},
+          { type: 'noun', word: 'word noun 1'},
+          { type: 'verb', word: 'word verb 2'},
         ],
       }
     })
@@ -37,8 +37,41 @@ describe.only('Domain', () => {
     })
 
     it('Grid row 표시', () => {
-      expect(hasGridRow(page, 'word test 1')).to.equal(true)
-      expect(hasGridRow(page, 'word test 2')).to.equal(true)
+      expect(hasGridRow(page, 'word noun 1')).to.equal(true)
+      expect(hasGridRow(page, 'word verb 2')).to.equal(true)
     })
+  })
+
+  it.skip('Field(Type) title 및 radio group 표시, Default checked : Noun', () => {
+    expect(findLabel(page, 'Type')).to.be.ok
+
+    const radioButtonNoun = findRadioButton(page, 'Noun')
+    const radioButtonVerb = findRadioButton(page, 'Verb')
+
+    expect(radioButtonNoun).to.be.ok
+    expect(radioButtonVerb).to.be.ok
+
+    expect(radioButtonNoun.element.checked).to.equal(true)
+    expect(radioButtonVerb.element.checked).to.equal(false)
+  })
+
+  it('Field(Word) title 및 input 표시', () => {
+    expect(findLabel(page, 'Word')).to.be.ok
+    expect(findInputById(page, 'word')).to.be.ok
+  })
+
+  it('Field(English) title 및 input 표시', () => {
+    expect(findLabel(page, 'English')).to.be.ok
+    expect(findInputById(page, 'english')).to.be.ok
+  })
+
+  it('Field(English Abbreviation) title 및 input 표시', () => {
+    expect(findLabel(page, 'English Abbreviation')).to.be.ok
+    expect(findInputById(page, 'englishAbbreviation')).to.be.ok
+  })
+
+  it('Field(Definition) title 및 input 표시', () => {
+    expect(findLabel(page, 'Definition')).to.be.ok
+    expect(findTextareaById(page, 'definition')).to.be.ok
   })
 })

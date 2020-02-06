@@ -69,6 +69,22 @@ body{
 .field-controls label{
   /* color: black; */
 }
+.field-controls-horizental{
+  display: flex;
+  flex-direction: row;
+}
+
+.radio-button-container{  
+  width: 100px;
+  display: flex;
+}
+.radio-button-container input{
+  width: 20px;
+}
+.radio-button-container label{
+  width: 20px;
+}
+
 .button-group{
   width: 100%;
   text-align: right;
