@@ -15,6 +15,16 @@ export default new Vuex.Store({
         description: 'role description',
       },
     ],
+    word: [
+      {
+        name: 'word1',
+        description: 'word1 description',
+      },
+      {
+        name: 'word2',
+        description: 'word2 description',
+      },
+    ],
   },
   mutations: {
   },

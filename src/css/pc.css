@@ -41,6 +41,20 @@ body{
   width: 100%;
 }
 
+.page-body-frame{
+  display: flex;
+}
+.page-body-left{
+  width: 200px;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: antiquewhite;
+}
+.page-body-right{
+  width: 100%;
+  padding-left: 10px;
+}
+
 .field-group{
   display: flex;
   margin-bottom: 10px;

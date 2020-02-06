@@ -13,12 +13,12 @@ import {
   enterInput,
 } from './elements'
 
-describe.only('Domain', () => {
+describe('Domain', () => {
   let page
 
   before(function () {
     page = shallowMount(Domain)
-  });
+  })
 
   it('화면 제목(Domain) 표시', () => {
     expect(hasPageTitle(page, 'Domain')).to.equal(true)

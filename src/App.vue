@@ -10,7 +10,7 @@
         <li><router-link to="/domain">Domain</router-link></li>
       </ul>
       <ul>
-        <li>Words (00)</li>
+        <li><router-link to="/word">Word</router-link></li>
         <li>Terms (00)</li>
         <li>Codes (00)</li>
       </ul>

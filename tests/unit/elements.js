@@ -1,13 +1,46 @@
 //------------------------------------------------------------------
-function hasPageTitle(wrapper, title) {
-  let hasPageTitle = false
-  const pageTitle = wrapper.find('div[class="page-title"]')
+function hasGridHeader(wrapper, title) {
+  let hasGridHeader = false
+  const headerList = wrapper.findAll('th')
 
-  if(pageTitle !== undefined){
-    if(pageTitle.text() === title)
-      hasPageTitle = true
+  for (var i = 0; i < headerList.length; i++) {
+    if (headerList.at(i).text() === title) {
+      hasGridHeader = true
+    }
   }
 
+  return hasGridHeader
+}
+
+function hasGridRow(wrapper, text) {
+  let hasGridRow = false
+  const rowList = wrapper.findAll('td')
+
+  for (var i = 0; i < rowList.length; i++) {
+    if (rowList.at(i).text() === text) {
+      hasGridRow = true
+    }
+  }
+
+  return hasGridRow
+}
+
+//------------------------------------------------------------------
+function hasPageTitle(wrapper, title) {
+  let hasPageTitle = false  
+
+  try{
+    const pageTitle = wrapper.find('div[class="page-title"]')
+
+    if (pageTitle !== undefined) {
+      if (pageTitle.text() === title)
+        hasPageTitle = true
+    }
+  }
+  catch(e){
+    //console.error('can not find this title')
+  }
+  
   return hasPageTitle
 }
 
@@ -213,4 +246,7 @@ export {
 
   findButton,
   clickButton,
+
+  hasGridHeader,
+  hasGridRow,
 }

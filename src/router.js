@@ -6,6 +6,8 @@ import Entity from '@/components/Entity.vue'
 import Attribute from '@/components/Attribute.vue'
 import Domain from '@/components/Domain.vue'
 
+import Word from '@/components/standard/Word.vue'
+
 import SinglePageSample from '@/components/SinglePageSample.vue'
 
 Vue.use(VueRouter)
@@ -31,6 +33,14 @@ const routes = [
     name: 'attribute',
     component: Attribute
   },
+
+  {
+    path: '/word',
+    name: 'word',
+    component: Word
+  },
+
+
   {
     path: '/singlePageSample',
     name: 'singlePageSample',
